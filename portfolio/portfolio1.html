@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restart</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: 'poppins',sans-serif;
+            box-sizing: border-box;
+        }
+        html{
+            scroll-behavior: smooth;
+        }
+        body{
+            background: #0b1118;
+            color: #fff;
+        }
+        .hello{
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .background{
+            width: 50px;
+            height: 100vh;
+            background-position:right;
+            border-radius: 40px;
+            padding: 55px 820px;
+        }
+        .background img{
+            width: 300px;
+            margin-top: 10%;
+        }
+        .container{
+            padding: 5px 10%;
+        }
+        .navbar{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            color: #1512aa;
+            padding: 5px 88px;
+            font-size: 20px;
+        }
+        .navbar ul li{
+            display: inline-block;
+            list-style: none;
+            margin: 10px 20px;
+        }
+        .navbar ul li a{
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            position: relative;
+        }
+        
+        .navbar ul li a:hover{
+            color: #1512aa;
+        }
+        .header-text{
+            margin-top: -38%;
+            font-size: 25px;
+            padding: 5px 75px;
+        }
+        .header-text h1{
+            font-size: 50px;
+            margin-top: 1%;
+            padding: 5px 8px;
+        }
+        .header-text h1 span{
+            color: #1512aa;
+        }
+        #about{
+            padding: 80px 0;
+            color: #ababab;
+        }
+        .row{
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+.about-column-1{
+    flex-basis: 35%;
+}
+.about-column-1 img{
+    width: 100%;
+    border-radius: 18px;
+}
+.about-column-2{
+    flex-basis: 60%;
+}
+.sub-title{
+    font-size: 50px;
+    font-weight: 300;
+    color:#1512aa ;
+}
+.tab-titles{
+    display: flex;
+    margin: 20px 0 40px;
+}
+.tab-links{
+    margin-right: 50px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
+}
+.tab-links::after{
+    content: '';
+    width: 10;
+    height: 3px;
+    background: #1512aa;
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    transition: 0.5s;
+}
+.tab-links.active-link::after{
+    width: 50%;
+}
+.tab-contents ul li{
+    margin: 10px 0;
+    font-size: 15px;
+}
+.tab-contents ul li span{
+    color:#5350ec;
+    font-size: 14px;
+}
+.tab-contents{
+    display: none;
+}
+.tab-contents.active-tab{
+    display: block;
+}
+#services{
+    padding: 30px 0;
+}
+.services-list{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    grid-gap: 40px;
+    margin-top: 20px;
+    font-size: 14px;
+}
+.services-list div{
+    background: #6e6ead;
+    padding: 40px;
+    font-size: 13px;
+    font-weight: 300;
+    border-radius: 10px;
+    transition: background 0.5s, transform 0.5s;
+}
+.services-list  div h2{
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+.services-list div a{
+    text-decoration: none;
+    color: #5350ec;
+    font-size: 12px;
+    margin-top: 20px;
+    display: inline-block;
+}
+.services-list div:hover{
+    background: #5350ec;
+    transform: translateY(-10px);
+}
+#portfolio{
+    padding: 50px 0px;
+}
+.work-list{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    grid-gap: 40px;
+    margin-top: 20px;
+}
+.work{
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+.work img{
+    width: 100%;
+    border-radius: 10px;
+    display: block;
+    transition: transform 0.5s;
+}
+.layer{
+    width: 100%;
+    height: 0%;
+    border-radius: 10px;
+    background: linear-gradient(rgba(0,0,0,0.6),#5352a0);
+    position: absolute;
+    left: 0;
+    overflow: hidden;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 40px;
+    text-align: center;
+    font-size: 14px;
+    transition: height 0.5s;
+}
+.layer h3{
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+.layer a{
+    margin-top:20px;
+    text-decoration: none;
+    color: #6e6ead;
+    font-size: 18px;
+    line-height: 60px;
+    background: #fff;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    text-align: center;
+}
+.work:hover img{
+    transform :scale(1.1);
+}
+.work:hover .layer{
+    height: 100%;
+}
+.btn{
+    display: block;
+    margin: 50px auto;
+    width: fit-content;
+    border: 1px solid #5350ec;
+    padding: 14px 6px;
+    border-radius: 6px;
+    text-decoration: none;
+    color: #fff;
+    transition: background 0.5s;
+}
+.btn:hover{
+    background: #6e6ead;
+}
+.para{
+    font-size: 16px;
+   }
+   .contact-left{
+    flex-basis: 35%;
+   }
+   .contact-right{
+    flex-basis:60%;
+   }
+   .btn.btn2{
+    display:inline-block;
+    background: #6e6ead;
+   }
+   .contact-right form{
+    width: 100%;
+   }
+   form input, form textarea{
+    width: 100%;
+    border: 0;
+    outline: none;
+    background: #262626;
+    padding: 15px;
+    margin: 15px 0;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 6px;
+   }
+   form btn2{
+    padding: 14px 60px;
+    font-size: 18px;
+    margin-top: 20px;
+    cursor: pointer;
+   }
+   .copyright{
+    text-align: center;
+    width: 100%;
+    padding: 25px;
+    background: #262626;
+    font-weight: 300;
+    margin-top: 20px;
+   }
+   
+
+
+    </style>
+        <body>
+    <div id="header">
+        <nav class="navbar">Anshika..
+            <div class="container">
+                <ul>
+                    <li ><a href="#home">Home</a></li>
+                    <li ><a href="#about">About</a></li>
+                    <li ><a href="#services">Services</a> </a></li>
+                    <li ><a href="#portfolio">Portfolio</a></li>
+                    <li ><a href="#contact">Contact</a></li>
+                </ul>
+        </nav>
+        <div id="main">
+            <div class="contain">
+                <div class="hello">
+                    <div class="background">
+                        <img src="images/SELF.jpeg">
+                    </div>
+                    <div class="header-text">
+                        <p>Web Developer</p>
+                    <h1>Hey,I'm <span>Anshika</span></h1><br>
+                    <p class="para">Currently ,I'm student pursuing my btech course from Jodhpur Institute Of Engineering.<br>
+                        I'm in First year and in first semester .<br> I have specilisation in Artificial Inteligence and Machine learning.
+                        <br>I'm very passionate about web development,learning new thing ,reading books.<br>I have designed many projects 
+                        at initial level because i'm just begineer.
+                    </p>
+                    </div>
+                </div>
+                </div>
+            </div>  
+        </div>
+
+        <!----------------------------------about------------------------------->
+        <div id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="about-column-1">
+                        <img src="images/SELF.jpeg">
+                    </div>
+                    <div class="about-column-2">
+                        <h1 class="sub-title">About Me</h1>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Commodi eveniet nemo odit aspernatur, aut accusamus at atque, fugiat tempore culpa suscipit vel iusto?Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum molestias dolores odit quisquam ut rem necessitatibus nisi id vitae?</p>
+    
+                        <div class="tab-titles">
+                            <p class="tab-links active-link" onclick="opentab('skills')">Slills</p>
+                            <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                            <p class="tab-links"  onclick="opentab('education')">Education</p>
+                    </div>
+                    <div class="tab-contents active-tab" id="skills">
+                        <ul>
+                            <li><span>Web development</span><br>Designed websites from HTML CSS JAVASCRIPT</li>
+                            <li><span>Programming</span><br>C programming</li>
+                            <li><span>Communication</span><br>Speaker in many hackathons and presantation</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="experience">
+                        <ul>
+                            <li><span>2024 - Current</span><br>Learning Web development Self</li>
+                            <li><span>2023 -2024 </span><br> Completed C programming</li>
+                            <li><span>Speaker </span><br>In college, I was as speaker from my team</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="education">
+                        <ul>
+                            <li><span>2023 - 2027</span><br>Pursuing B.tech</li>
+                            <li><span>2022 - 2023</span><br>Completed 12th with 75%</li>
+                            <li><span>2020 - 2021</span><br>Completed 10th with 90%</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!---------------------  services------------------------>
+         <div id="services">
+            <div class="container">
+                <h1 class="sub-title">My Services</h1>
+                <div class="services-list">
+                    <div>
+                        <h2>Web designing</h2>
+                    <p>I have learned HTML CSS Javascript in web developement . Practising by making clone website avaliable in market like netflix and weather detecting website .</p>
+                    <a href="#">learn more</a>
+                    </div>
+                    
+                <div >
+                    <h2>Programming</h2>
+                    <p>I have learned C language .i have alot practice in c programming and already done many project on it .That was fantastic experience for me .Currently I'm learning Python and i loved it .</p>
+                    <a href="#">learn more</a>
+                </div>
+                <div >
+                    <h2>Communication</h3>
+                    <p>I was as a speaker in many events in my college and schools .The best was in hackathon that was held in my college . I have also leading ability ,i was as a volenteer in many events and that was the great .</p>
+                    <a href="#">learn more</a>
+                </div>
+            </div>
+         </div><br><br><br><br><br><br><br><br><br><br>
+         <!-------------------Portfolio----------------------->
+        <div id="portfolio">
+            <div class="container">
+                <h1 class="sub-title">My Work</h1>
+                <div class="work-list">
+                    <div class="work">
+                        <img src="images/work-list 5.jpg"> 
+                        <div  class="layer">
+                            <h3>Social Media</h3>
+                        <p>I'm continuosly active on social media like linkedln,instagram to post new knowledgble things. </p>
+                        <a href="a">@</a>
+                        </div>
+                    </div>
+                    <div class="work">
+                    <img src="images/boss.jpg"> 
+                    <div  class="layer">
+                        <h3>Communication Skills</h3>
+                    <p>I'm proving my communication skills day by day .</p>
+                    <a href="a">@</a>
+                    </div>
+                    </div>
+                    <div class="work">
+                        <img src="images/work-list 4.jpg">
+                        <div  class="layer">
+                            <h3>Shopping App</h3>
+                        <p>Currently, I'm designing a shopping from whatever i learn in html css.</p>
+                        <a href="a">@</a>
+                        </div>
+                    </div>
+                </div> 
+                <a href="#" class="btn">See More</a>
+            </div>
+        </div>
+        <!----------------Contact---------------->
+        <div id="contact">
+            <div class="container">
+                <div class="row">
+                    <div class="contact-left">
+                        <h1 class="sub-title">Contact Me</h1><br>
+                        <p>anshika123@gmail.com</p><br><br>
+                        <p>9876354127</p>
+                        <a href="" class="btn">Download CV</a>
+                        </div>
+                    <div class="contact-right">
+                        <form>
+                            <input type="text" name="Name" placeholder="Your Name" required>
+                            <input type="email" name="email" placeholder="Your Email" required>
+                            <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                            <button type="submit" class="btn btn2">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>Copyright @ Anshika. Made with by East Tutorials</p>
+            </div>
+        </div>
+ 
+        <script>
+            var tablinks = document.getElementsByClassName("tab-links");
+            var tabcontents = document.getElementsByClassName("tab-contents");
+            
+            function opentab(tabname){
+                for(tablink of tablinks){
+                    tablink.classList.remove("active-link");
+                }
+                for(tabcontent of tabcontents){
+                    tabcontent.classList.remove("active-tab");
+                }
+                event.currentTarget.classList.add("active-link");
+                document.getElementById(tabname).classList.add("active-tab");
+            }
+            
+        </script>
+
+
+    </body>
+    </html>
